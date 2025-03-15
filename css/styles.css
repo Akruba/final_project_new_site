@@ -1,0 +1,345 @@
+/* Base Styles and Accessibility Features */
+:root {
+    --primary-color: #c1440e;
+    --secondary-color: #662e1c;
+    --background-color: #f9f5f0;
+    --text-color: #333333;
+    --accent-color: #2c3e50;
+    --light-accent: #ecf0f1;
+    --focus-outline: 3px solid #2980b9;    
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Skip to Main Content Link - Only visible on focus */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px;
+    background-color: #000000;
+    color: var(--light-accent);
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: var(--focus-outline);
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Navigation using Flexbox */
+nav {
+    margin-top: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+    outline: none;
+}
+
+.nav-links a.active {
+    background-color: var(--secondary-color);
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus {
+    outline: var(--focus-outline);
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin: 1rem 0 0.5rem 0;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Hero section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero-content {
+    padding: 1rem;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Facts Grid using Grid Layout */
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.fact-card {
+    background-color: var(--light-accent);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Box model styling for images */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid var(--accent-color);
+    padding: 5px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+}
+
+/* Image credits styling */
+.image-credit {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--accent-color);
+    text-align: right;
+}
+
+/* Mars Habitation Section */
+.habitation-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.habitation-text ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Timeline Grid */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.timeline-item {
+    background-color: var(--light-accent);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* nth-child selector for alternating timeline items */
+.timeline-item:nth-child(odd) {
+    border-left: 5px solid var(--primary-color);
+}
+
+.timeline-item:nth-child(even) {
+    border-left: 5px solid var(--secondary-color);
+}
+
+/* Current Missions Flex Layout */
+.missions-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.mission-card {
+    flex: 1 1 300px;
+    background-color: var(--light-accent);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Future Missions */
+.future-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.future-text ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    background-color: var(--light-accent);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.image-info {
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer a {
+    color: var(--light-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover, footer a:focus {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .hero, .habitation-content, .future-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .missions-flex {
+        flex-direction: column;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .nav-links a {
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Animation for page transitions */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+main {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Focus indicator for all interactive elements */
+button:focus, a:focus, input:focus, textarea:focus, select:focus {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
